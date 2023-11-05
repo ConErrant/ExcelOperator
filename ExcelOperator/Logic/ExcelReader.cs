@@ -1,8 +1,10 @@
 ﻿using XlsxHelper;
 
+//https://stackoverflow.com/questions/31515776/how-can-i-catch-uniquekey-violation-exceptions-with-ef6-and-sql-server
+
 namespace ExcelOperator.Logic
 {
-    public class FileReader
+    public class ExcelReader
     {
         public delegate Task CallbackDelegate(List<List<string>> rows);
 
@@ -41,6 +43,13 @@ namespace ExcelOperator.Logic
                         batch.Clear();
                         GC.Collect();
                     }
+                }
+
+                if (batch.Count() > 0)
+                {
+                    await processCallback(batch);
+                    batch.Clear();
+                    GC.Collect();
                 }
             }
         }
