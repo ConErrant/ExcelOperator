@@ -1,6 +1,7 @@
 ﻿using XlsxHelper;
 
 //https://stackoverflow.com/questions/31515776/how-can-i-catch-uniquekey-violation-exceptions-with-ef6-and-sql-server
+//https://dotnetcoretutorials.com/better-exception-handling-with-entityframeworkcore-exceptions/
 
 namespace ExcelOperator.Logic
 {
